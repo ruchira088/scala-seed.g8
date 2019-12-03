@@ -1,8 +1,9 @@
 package com.ruchij
 
-import org.scalatest.{FlatSpec, MustMatchers}
+import org.scalatest.flatspec.AnyFlatSpec
+import org.scalatest.matchers.must.Matchers
 
-class ExampleTest extends FlatSpec with MustMatchers {
+class ExampleTest extends AnyFlatSpec with Matchers {
   "Sample test" should "pass nicely" in {
     8 mustBe 8
   }
