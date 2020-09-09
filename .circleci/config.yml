@@ -10,7 +10,7 @@ alias:
       sudo apt install sbt -y
 
 jobs:
-  build:
+  build-and-test:
     docker:
       - image: cimg/openjdk:11.0
     steps:
@@ -29,3 +29,17 @@ jobs:
           paths:
             - ~/.sbt
             - ~/.cache/coursier
+
+orbs:
+  slack: circleci/slack@3
+
+workflows:
+  version: 2
+
+  scala-seed:
+    jobs:
+      - build-and-test:
+          post-steps:
+            - slack/status
+
+
