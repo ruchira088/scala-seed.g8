@@ -6,7 +6,7 @@ lazy val root =
     .settings(
       name := "$name;format="normalize"$",
       organization := "com.ruchij",
-      scalaVersion := SCALA_VERSION,
+      scalaVersion := Dependencies.ScalaVersion,
       version := "0.0.1",
       maintainer := "me@ruchij.com",
       libraryDependencies ++= rootDependencies ++ rootTestDependencies.map(_ % Test),
