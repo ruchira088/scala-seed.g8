@@ -5,6 +5,7 @@ lazy val root = (project in file("."))
   .enablePlugins(ScriptedPlugin)
   .settings(
     name := "scala-seed",
+    libraryDependencies += "org.scala-sbt" %% "scripted-plugin" % sbtVersion.value,
     test in Test := {
       val _ = (g8Test in Test).toTask("").value
     },
