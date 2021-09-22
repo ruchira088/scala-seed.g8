@@ -8,7 +8,7 @@ object Dependencies
 
   lazy val scalaTypedHoles = "com.github.cb372" % "scala-typed-holes" % "0.1.9" cross CrossVersion.full
 
-  lazy val scalaTest = "org.scalatest" %% "scalatest" % "3.2.9"
+  lazy val scalaTest = "org.scalatest" %% "scalatest" % "3.2.10"
 
   lazy val pegdown = "org.pegdown" % "pegdown" % "1.6.0"
 }
