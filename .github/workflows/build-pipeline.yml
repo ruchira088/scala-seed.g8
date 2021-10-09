@@ -19,13 +19,13 @@ jobs:
       - name: Cache dependencies
         uses: actions/cache@v2
         with:
-          key: scala-seed-${{ hashFiles("**/build.properties") }}-${{ hashFiles("**/plugins.sbt") }}-${{ hashFiles("**/Dependencies.scala") }}
+          key: scala-seed-${{ hashFiles('**/build.properties') }}-${{ hashFiles('**/plugins.sbt') }}-${{ hashFiles('**/Dependencies.scala') }}
           path: |
             ~/.sbt
             ~/.cache/coursier
           restore-keys: |
-            scala-seed-${{ hashFiles("**/build.properties") }}-${{ hashFiles("**/plugins.sbt") }}
-            scala-seed-${{ hashFiles("**/build.properties") }}
+            scala-seed-${{ hashFiles('**/build.properties') }}-${{ hashFiles('**/plugins.sbt') }}
+            scala-seed-${{ hashFiles('**/build.properties') }}
             scala-seed
 
       - name: Create new sbt project from g8 template
