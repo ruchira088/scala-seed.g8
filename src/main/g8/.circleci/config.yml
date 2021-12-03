@@ -48,5 +48,7 @@ workflows:
   $name;format="normalize"$:
     jobs:
       - build-and-test:
+          context:
+            - slack-webhook
           post-steps:
             - slack/status

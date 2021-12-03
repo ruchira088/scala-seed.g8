@@ -40,6 +40,8 @@ workflows:
   scala-seed:
     jobs:
       - build-and-test:
+          context:
+            - slack-webhook
           post-steps:
             - slack/status
 
