@@ -4,7 +4,7 @@
 
   tasks:
     - name: Build production jar files
-      shell: cd ../ && sbt universal:packageZipTarball
+      shell: cd ../ && sbt Universal/packageZipTarball
 
     - name: Build production Docker image
       shell: cd ../ && docker build -t $name;format="normalize"$:latest -f Dockerfile-prod .
