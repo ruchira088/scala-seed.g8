@@ -1,8 +1,7 @@
-name: Scala Seed Build Pipeline
+name: build-pipeline
 
 on:
   - push
-  - pull_request
 
 jobs:
   build-and-test:
