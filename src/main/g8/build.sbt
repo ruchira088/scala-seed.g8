@@ -21,7 +21,7 @@ lazy val root =
       buildInfoKeys := Seq[BuildInfoKey](name, organization, version, scalaVersion, sbtVersion),
       buildInfoPackage := "com.eed3si9n.ruchij",
       topLevelDirectory := None,
-      scalacOptions ++= Seq("-Xlint", "-feature"),
+      scalacOptions ++= Seq("-deprecation", "-feature", "-unchecked", "-Xfatal-warnings"),
       addCompilerPlugin(kindProjector)
     )
 
