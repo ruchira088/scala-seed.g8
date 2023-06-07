@@ -2,7 +2,7 @@ import sbt._
 
 object Dependencies
 {
-  val ScalaVersion = "2.13.10"
+  val ScalaVersion = "2.13.11"
 
   lazy val kindProjector = "org.typelevel" %% "kind-projector" % "0.13.2" cross CrossVersion.full
 
