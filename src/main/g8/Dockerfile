@@ -1,4 +1,4 @@
-FROM eclipse-temurin:17-jdk
+FROM eclipse-temurin:21-jdk
 
 RUN apt-get update && \
     apt-get install apt-transport-https bc ca-certificates software-properties-common -y
