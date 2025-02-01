@@ -44,31 +44,16 @@ jobs:
       - name: Execute test suite
         run: cd target/g8 && sbt clean test
 
-      - name: Send successful Slack message
-        uses: slackapi/slack-github-action@v1.25.0
-        with:
-          channel-id: C02HYP398KS
-          slack-message: |
-            :white_check_mark: *SUCCESS*
-            *${{ github.repository }}*
-            *Branch:* ${{ github.ref }}
-            *Commit:* `${{ github.sha }}`
-            *Last Commit Message:* ${{ github.event.head_commit.message }}
-            *URL:* ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
-        env:
-          SLACK_BOT_TOKEN: ${{ secrets.SLACK_BOT_TOKEN }}
+  send-notification:
+    runs-on: ubuntu-latest
+    if: always()
 
-      - name: Send failure Slack message
-        if: failure()
-        uses: slackapi/slack-github-action@v1.25.0
-        with:
-          channel-id: C02HYP398KS
-          slack-message: |
-            :x: *FAILURE*
-            *${{ github.repository }}*
-            *Branch:* ${{ github.ref }}
-            *Commit:* `${{ github.sha }}`
-            *Last Commit Message:* ${{ github.event.head_commit.message }}
-            *URL:* ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
-        env:
-          SLACK_BOT_TOKEN: ${{ secrets.SLACK_BOT_TOKEN }}
+    permissions:
+      id-token: write
+
+    needs:
+      - build-and-test
+
+    steps:
+      - name: Send Slack notification
+        uses: ruchira088/slack-github-action@v1
