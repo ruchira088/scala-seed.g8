@@ -1,11 +1,9 @@
-version: "3.8"
-
 services:
 
   $name;format="normalize"$:
     build: .
     ports:
-      - 5005:5005
+      - "5005:5005"
     volumes:
       - "~/.sbt:/root/.sbt"
       - "~/Library/Caches/Coursier:/root/.cache/coursier" # MacOS Coursier cache
